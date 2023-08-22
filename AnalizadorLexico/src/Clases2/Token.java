@@ -17,15 +17,14 @@ public class Token {
     private String patron;
     private int fila;
     private int columnaInicio;
-    private Color color;
 
-    public Token(String tipo, String lexema, String patron, int fila, int columnaInicio, Color color) {
+    public Token(String tipo, String lexema, String patron, int fila, int columnaInicio) {
         this.tipo = tipo;
         this.lexema = lexema;
         this.patron = patron;
         this.fila = fila;
         this.columnaInicio = columnaInicio;
-        this.color = color;
+     
     }
 
     //getters y setters 
@@ -69,13 +68,5 @@ public class Token {
         this.columnaInicio = columnaInicio;
     }
 
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
-    
 
 }

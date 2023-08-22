@@ -6,17 +6,12 @@ package Clases2;
 
 import static GUI.Archivo.TablaErrores;
 import static GUI.Archivo.txtArchivo;
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import javax.swing.JTextPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
@@ -68,9 +63,9 @@ public class AnalizadorLexico {
                 String lexema = lexemaBuilder.toString();
 
                 if (Arrays.asList(PALABRAS_RESERVADAS).contains(lexema)) {
-                    tokens.add(new Token("Palabra Reservada", lexema, "Palabra Reservada", fila, columnaInicio - lexema.length(), Color.pink));
+                    tokens.add(new Token("Palabra Reservada", lexema, "Palabra Reservada", fila, columnaInicio - lexema.length()));
                 } else {
-                    tokens.add(new Token("Identificador", lexema, patron, fila, columnaInicio - lexema.length(), Color.BLACK));
+                    tokens.add(new Token("Identificador", lexema, patron, fila, columnaInicio - lexema.length()));
                 }
             } else if (Character.isDigit(caracter)) {
                 StringBuilder lexemaBuilder = new StringBuilder();
@@ -82,29 +77,29 @@ public class AnalizadorLexico {
                     columnaInicio++;
                 }
 
-                tokens.add(new Token("Constante", lexemaBuilder.toString(), patron, fila, columnaInicio - lexemaBuilder.length(), Color.RED));
+                tokens.add(new Token("Constante", lexemaBuilder.toString(), patron, fila, columnaInicio - lexemaBuilder.length()));
             } else if (Patrones.OPERADOR_ARITMETICO.contains(String.valueOf(caracter))) {
-                tokens.add(new Token("Aritmetico", String.valueOf(caracter), Patrones.OPERADOR_ARITMETICO, fila, columnaInicio, Color.cyan));
+                tokens.add(new Token("Aritmetico", String.valueOf(caracter), Patrones.OPERADOR_ARITMETICO, fila, columnaInicio));
                 indice++;
                 columnaInicio++;
             } else if (Patrones.CADENAS.contains(String.valueOf(caracter))) {
-                tokens.add(new Token("Cadenas", String.valueOf(caracter), Patrones.CADENAS, fila, columnaInicio, Color.orange));
+                tokens.add(new Token("Cadenas", String.valueOf(caracter), Patrones.CADENAS, fila, columnaInicio));
                 indice++;
                 columnaInicio++;
             } else if (Patrones.OPERADOR_ASIGNACION.contains(String.valueOf(caracter))) {
-                tokens.add(new Token("Asignacion", String.valueOf(caracter), Patrones.OPERADOR_ASIGNACION, fila, columnaInicio, Color.cyan));
+                tokens.add(new Token("Asignacion", String.valueOf(caracter), Patrones.OPERADOR_ASIGNACION, fila, columnaInicio));
                 indice++;
                 columnaInicio++;
             } else if (Patrones.OPERADOR_COMPARACION.contains(String.valueOf(caracter))) {
-                tokens.add(new Token("Comparacion", String.valueOf(caracter), Patrones.OPERADOR_COMPARACION, fila, columnaInicio, Color.cyan));
+                tokens.add(new Token("Comparacion", String.valueOf(caracter), Patrones.OPERADOR_COMPARACION, fila, columnaInicio));
                 indice++;
                 columnaInicio++;
             } else if (Patrones.COMENTARIOS.contains(String.valueOf(caracter))) {
-                tokens.add(new Token("Comentarios", String.valueOf(caracter), Patrones.COMENTARIOS, fila, columnaInicio, Color.GRAY));
+                tokens.add(new Token("Comentarios", String.valueOf(caracter), Patrones.COMENTARIOS, fila, columnaInicio));
                 indice++;
                 columnaInicio++;
             } else if (OTROS.contains(String.valueOf(caracter))) {
-                tokens.add(new Token("Otros", String.valueOf(caracter), "Otros", fila, columnaInicio, Color.GREEN));
+                tokens.add(new Token("Otros", String.valueOf(caracter), "Otros", fila, columnaInicio));
                 indice++;
                 columnaInicio++;
             } else {
@@ -141,39 +136,6 @@ public class AnalizadorLexico {
     }
 
     // No tocar //
-    // Para Colorear el texto Pendiente
-    public void highlightTokens(List<Token> tokens) {
-        StyledDocument doc = txtArchivo.getStyledDocument();
-        Style defaultStyle = doc.getStyle(StyleContext.DEFAULT_STYLE);
-
-        String text = txtArchivo.getText();
-
-        for (Token token : tokens) {
-            String tokenText = token.getLexema();
-            int index = 0;
-
-            while (index < text.length()) {
-                index = text.indexOf(tokenText, index);
-                if (index == -1) {
-                    break; // No more occurrences found
-                }
-
-                // Check if the token is standalone or part of a longer word
-               
-               
-                    int start = index;
-                    int end = start + tokenText.length();
-
-                    Style style = doc.addStyle(null, defaultStyle);
-                    StyleConstants.setForeground(style, token.getColor());
-                    doc.setCharacterAttributes(start, end - start, style, false);
-
-                    index = end; // Move to the next potential match
-                 
-                    index++; // Move to the next character and continue searching
-                }
-            }
-        
-    }
+ 
 
 }

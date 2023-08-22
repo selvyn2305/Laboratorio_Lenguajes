@@ -8,6 +8,7 @@ import Clases2.SubirArchivo;
 import Clases2.AnalizadorLexico;
 import static Clases2.AnalizadorLexico.analizarLexemas;
 import Clases2.ColorTabla;
+import Clases2.ColorTexto;
 import Clases2.Patrones;
 import Clases2.Token;
 import java.awt.Color;
@@ -21,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Archivo extends javax.swing.JFrame {
 
+    ColorTexto tex = new ColorTexto();
     /**
      * Creates new form Archivo
      */
@@ -245,7 +247,7 @@ public class Archivo extends javax.swing.JFrame {
         // TODO add your handling code here:
         String texto = txtArchivo.getText();
         List<Clases2.Token> tokens = AnalizadorLexico.analizarLexemas(texto);
-
+        
         for (Clases2.Token token : tokens) {
             Object[] rowData = {
                 token.getTipo(),
@@ -262,9 +264,7 @@ public class Archivo extends javax.swing.JFrame {
 
     private void btnColorTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColorTextoActionPerformed
         // TODO add your handling code here:
-        List<Token> tokens = analizarLexemas(txtArchivo.getText());
-        AnalizadorLexico or = new AnalizadorLexico();
-        or.highlightTokens(tokens);
+        tex.colorearEditorTexto(txtArchivo);
     }//GEN-LAST:event_btnColorTextoActionPerformed
 
     /**
