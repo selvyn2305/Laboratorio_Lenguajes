@@ -11,10 +11,10 @@ package Clases2;
 public class Patrones {
 
     public static final String IDENTIFICADOR = "[a-z,A-Z,_]*[a-z,A-Z,0-9]+";
-    public static final String OPERADOR_ARITMETICO = "+|-|/|**|//|*|%";
+    public static final String OPERADOR_ARITMETICO = "\\+|-|\\*\\*|//|\\*|%|/";
     public static final String OPERADOR_COMPARACION = "==|!=|>|<|>=|<=";
     public static final String OPERADOR_ASIGNACION = "=|+=|-=|/=|**=|//=|%=";
-    public static final String COMENTARIOS = "r'\s*#[a-z,A-Z].*'";
+    public static final String COMENTARIOS = "\\s*#.*";
     public static final String CONSTANTE = "[0-9]*|[.][0-9]*";
     public static final String CADENAS = "[\"']([a-zA-Z]*[^\"]*)[\"']";
     // Agregar aquí más patrones
