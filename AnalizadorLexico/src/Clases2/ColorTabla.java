@@ -25,7 +25,7 @@ public class ColorTabla extends DefaultTableCellRenderer {
             String cellText = cellValue.toString();
 
             if ("Identificador".equals(cellText)) {
-                setForeground(Color.yellow);
+                setForeground(Color.blue);
             } else if ("Palabra Reservada".equals(cellText)) {
                 setForeground(Color.pink);
             } else if ("Aritmetico".equals(cellText) || "Comparacion".equals(cellText) || "Asignacion".equals(cellText)) {
