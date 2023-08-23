@@ -5,17 +5,12 @@
 package Clases2;
 
 import static GUI.Archivo.TablaErrores;
-import static GUI.Archivo.txtArchivo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.Style;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyleContext;
-import javax.swing.text.StyledDocument;
 
 /**
  *
@@ -136,6 +131,4 @@ public class AnalizadorLexico {
     }
 
     // No tocar //
- 
-
 }
