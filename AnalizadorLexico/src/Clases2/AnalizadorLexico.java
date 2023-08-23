@@ -8,6 +8,7 @@ import static GUI.Archivo.TablaErrores;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
@@ -32,7 +33,7 @@ public class AnalizadorLexico {
             "try", "while", "with", "yield"
         };
 
-        Set<String> OTROS = new HashSet<>(Arrays.asList("(", ")", "[", "]", "{", "}", ",", ".", ";", ":"));
+        Set<String> OTROS = new LinkedHashSet<>(Arrays.asList("(", ")", "[", "]", "{", "}", ",", ".", ";", ":"));
 
         while (indice < longitudTexto) {
             char caracter = texto.charAt(indice);

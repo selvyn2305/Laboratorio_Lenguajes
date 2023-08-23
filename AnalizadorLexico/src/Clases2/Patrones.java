@@ -16,7 +16,7 @@ public class Patrones {
     public static final String OPERADOR_ASIGNACION = "=|+=|-=|/=|**=|//=|%=";
     public static final String COMENTARIOS = "\\s*#.*";
     public static final String CONSTANTE = "[0-9]*|[.][0-9]*";
-    public static final String CADENAS = "[\"']([a-zA-Z]*[^\"]*)[\"']";
+    public static final String CADENAS = "\"'([a-zA-Z]*[^\"]*)\"'";
     // Agregar aquí más patrones
 
    
