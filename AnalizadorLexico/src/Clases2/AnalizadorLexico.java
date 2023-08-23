@@ -4,6 +4,7 @@
  */
 package Clases2;
 
+import static Clases2.Patrones.PALABRAS_RESERVADAS;
 import static GUI.Archivo.TablaErrores;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,14 +27,9 @@ public class AnalizadorLexico {
         int columnaInicio = 1;
         int longitudTexto = texto.length();
         int indice = 0;
-        String[] PALABRAS_RESERVADAS = {
-            "and", "as", "assert", "break", "class", "continue", "def", "del", "elif", "else", "except",
-            "False", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda", "None",
-            "nonlocal", "not", "or", "pass", "raise", "return", "True", // Aquí agregamos una coma para separar
-            "try", "while", "with", "yield"
-        };
+        
 
-        Set<String> OTROS = new LinkedHashSet<>(Arrays.asList("(", ")", "[", "]", "{", "}", ",", ".", ";", ":"));
+        Set<String> OTROS = new LinkedHashSet<>(Arrays.asList("(", ")", "[", "]", "{", "}", ",", ";", ":"));
 
         while (indice < longitudTexto) {
             char caracter = texto.charAt(indice);
@@ -58,7 +54,7 @@ public class AnalizadorLexico {
 
                 String lexema = lexemaBuilder.toString();
 
-                if (Arrays.asList(PALABRAS_RESERVADAS).contains(lexema)) {
+                if (palabrasReservadas(lexema)) {
                     tokens.add(new Token("Palabra Reservada", lexema, "Palabra Reservada", fila, columnaInicio - lexema.length()));
                 } else {
                     tokens.add(new Token("Identificador", lexema, patron, fila, columnaInicio - lexema.length()));
@@ -105,13 +101,6 @@ public class AnalizadorLexico {
                 columnaInicio++;
             }
             //No cambiar eso 
-            {
-
-                columnaInicio++;
-                indice++;
-            }
-
-            //No cambiar eso 
             AnalizadorLexico ar = new AnalizadorLexico();
             ar.TablaErrores(errores, (DefaultTableModel) TablaErrores.getModel());
         }
@@ -132,4 +121,7 @@ public class AnalizadorLexico {
     }
 
     // No tocar //
+     private static boolean palabrasReservadas(String lexema) {
+        return Arrays.asList(PALABRAS_RESERVADAS).contains(lexema);
+    }
 }
