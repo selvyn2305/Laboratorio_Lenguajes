@@ -2,18 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package Frontend;
 
-import Clases2.SubirArchivo;
-import Clases2.AnalizadorLexico;
-import static Clases2.AnalizadorLexico.analizarLexemas;
-import Clases2.ColorTabla;
-import Clases2.ColorTexto;
-import Clases2.Patrones;
-import Clases2.Token;
-import java.awt.Color;
+import BackendAL.SubirArchivo;
+import BackendAL.AnalizadorLexico;
+import BackendAL.ColorTabla;
+import BackendAL.ColorTexto;
 import java.util.List;
-import javax.swing.JTextPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class Archivo extends javax.swing.JFrame {
 
     ColorTexto tex = new ColorTexto();
+
     /**
      * Creates new form Archivo
      */
@@ -54,8 +50,12 @@ public class Archivo extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtArchivo = new javax.swing.JTextPane();
         btnColorTexto = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TablaErrores = new javax.swing.JTable();
+        NombreDelEditor = new javax.swing.JLabel();
+        NombreAnalizadorLexico = new javax.swing.JLabel();
+        btnAnalizadorSintactico = new javax.swing.JButton();
+        NombreAnalizadorSintactico = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TablaReporteSin = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Archivo = new javax.swing.JMenu();
@@ -70,30 +70,34 @@ public class Archivo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnLimpiar.setBackground(new java.awt.Color(0, 204, 204));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 130, 80, 60));
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 80, 30));
 
+        btnSubirArchivo1.setBackground(new java.awt.Color(0, 204, 204));
         btnSubirArchivo1.setText("Subir");
         btnSubirArchivo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubirArchivo1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSubirArchivo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, 80, 60));
+        getContentPane().add(btnSubirArchivo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 20, 80, 30));
 
-        btnDetectar.setText("Detectar");
+        btnDetectar.setBackground(new java.awt.Color(0, 204, 204));
+        btnDetectar.setText("Analizador Lexico");
         btnDetectar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDetectarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDetectar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, 100, 50));
+        getContentPane().add(btnDetectar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 140, 50));
 
+        TablaReporte.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
         TablaReporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -107,37 +111,61 @@ public class Archivo extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(TablaReporte);
 
-        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, 220));
+        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 870, 260));
 
+        txtArchivo.setFont(new java.awt.Font("Segoe UI Black", 2, 18)); // NOI18N
         jScrollPane3.setViewportView(txtArchivo);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 790, 310));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 720, 310));
 
+        btnColorTexto.setBackground(new java.awt.Color(0, 204, 204));
         btnColorTexto.setText("Color");
         btnColorTexto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnColorTextoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnColorTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 280, 100, 30));
+        getContentPane().add(btnColorTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 100, 30));
 
-        TablaErrores.setModel(new javax.swing.table.DefaultTableModel(
+        NombreDelEditor.setFont(new java.awt.Font("Segoe UI Emoji", 3, 18)); // NOI18N
+        NombreDelEditor.setForeground(new java.awt.Color(255, 255, 255));
+        NombreDelEditor.setText("PARSER-PY");
+        getContentPane().add(NombreDelEditor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
+
+        NombreAnalizadorLexico.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        NombreAnalizadorLexico.setForeground(new java.awt.Color(255, 255, 255));
+        NombreAnalizadorLexico.setText("Analizador Lexico ");
+        getContentPane().add(NombreAnalizadorLexico, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 200, 30));
+
+        btnAnalizadorSintactico.setBackground(new java.awt.Color(0, 204, 204));
+        btnAnalizadorSintactico.setText("Analizador Sintactico");
+        getContentPane().add(btnAnalizadorSintactico, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 130, 50));
+
+        NombreAnalizadorSintactico.setBackground(new java.awt.Color(255, 255, 255));
+        NombreAnalizadorSintactico.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
+        NombreAnalizadorSintactico.setForeground(new java.awt.Color(153, 255, 0));
+        NombreAnalizadorSintactico.setText("Analizador Sintactico");
+        NombreAnalizadorSintactico.setToolTipText("");
+        getContentPane().add(NombreAnalizadorSintactico, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 80, 240, -1));
+
+        TablaReporteSin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Errores"
+                "Bloque", "Lexema", "Error ", "Linea", "Columna"
             }
         ));
-        jScrollPane1.setViewportView(TablaErrores);
+        jScrollPane2.setViewportView(TablaReporteSin);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 347, 450, 220));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 720, 310));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decoracion/kali-mr-robot-augmented-reality-game-1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 620));
+        jLabel1.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decoracion/Fondo.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1720, 890));
 
         Archivo.setText("Archivo ");
         Archivo.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +261,7 @@ public class Archivo extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtArchivo.setText("");
         AnalizadorLexico in = new AnalizadorLexico();
-        in.limpiarTabla((DefaultTableModel) TablaErrores.getModel());
+        in.limpiarTabla((DefaultTableModel) TablaReporteSin.getModel());
         in.limpiarTabla((DefaultTableModel) TablaReporte.getModel());
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
@@ -246,9 +274,11 @@ public class Archivo extends javax.swing.JFrame {
     private void btnDetectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetectarActionPerformed
         // TODO add your handling code here:
         String texto = txtArchivo.getText();
-        List<Clases2.Token> tokens = AnalizadorLexico.analizarLexemas(texto);
-        
-        for (Clases2.Token token : tokens) {
+        List<BackendAL.Token> tokens = AnalizadorLexico.analizarLexemas(texto);
+
+        DefaultTableModel model = (DefaultTableModel) TablaReporte.getModel();
+        model.setRowCount(0); // Esto elimina todas las filas existentes
+        for (BackendAL.Token token : tokens) {
             Object[] rowData = {
                 token.getTipo(),
                 token.getLexema(),
@@ -256,10 +286,10 @@ public class Archivo extends javax.swing.JFrame {
                 token.getFila(),
                 token.getColumnaInicio()
             };
-            DefaultTableModel model = (DefaultTableModel) TablaReporte.getModel();
-            model.addRow(rowData);
-        }
 
+            model.addRow(rowData);
+
+        }
     }//GEN-LAST:event_btnDetectarActionPerformed
 
     private void btnColorTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColorTextoActionPerformed
@@ -307,8 +337,12 @@ public class Archivo extends javax.swing.JFrame {
     private javax.swing.JMenu Archivo;
     private javax.swing.JMenu Ayuda;
     private javax.swing.JMenu GenerarGrafico;
-    public static javax.swing.JTable TablaErrores;
+    private javax.swing.JLabel NombreAnalizadorLexico;
+    private javax.swing.JLabel NombreAnalizadorSintactico;
+    private javax.swing.JLabel NombreDelEditor;
     public static javax.swing.JTable TablaReporte;
+    public static javax.swing.JTable TablaReporteSin;
+    private javax.swing.JButton btnAnalizadorSintactico;
     private javax.swing.JButton btnColorTexto;
     private javax.swing.JButton btnDetectar;
     private javax.swing.JButton btnLimpiar;
@@ -319,7 +353,7 @@ public class Archivo extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     public static javax.swing.JTextPane txtArchivo;

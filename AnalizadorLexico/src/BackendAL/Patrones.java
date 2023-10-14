@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Clases2;
+package BackendAL;
 
 /**
  *
@@ -10,10 +10,10 @@ package Clases2;
  */
 public class Patrones {
 
-    public static final String IDENTIFICADOR = "cadena de texto _ cadena de texto";
-    public static final String OPERADOR_ARITMETICO = "+|-|**|/|//|%|*";
-    public static final String OPERADOR_COMPARACION = " ==|!= ";
-    public static final String OPERADOR_ASIGNACION = "=|+=|-=|/=|**=|//=|%=";
+    public static final String IDENTIFICADOR = "cadena de texto numero _ cadena de texto numero";
+    public static final String OPERADOR_ARITMETICO = "+|-|/|%|*|&|";
+    public static final String OPERADOR_COMPARACION = " ==|!= |<|>|<=|>= ";
+    public static final String OPERADOR_ASIGNACION = "%=|=|//=|/=|-=|+=";
     public static final String[] PALABRAS_RESERVADAS = {
             "and", "as", "assert", "break", "class", "continue", "def", "del", "elif", "else", "except",
             "False", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda", "None",

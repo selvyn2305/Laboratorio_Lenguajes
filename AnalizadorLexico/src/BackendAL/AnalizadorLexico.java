@@ -2,13 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Clases2;
+package BackendAL;
 
-import static Clases2.Patrones.PALABRAS_RESERVADAS;
-import static GUI.Archivo.TablaErrores;
+import static BackendAL.Patrones.PALABRAS_RESERVADAS;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,12 +20,11 @@ public class AnalizadorLexico {
 
     public static List<Token> analizarLexemas(String texto) {
         List<Token> tokens = new ArrayList<>();
-        List<String> errores = new ArrayList<>();
+        List<Token> caracteresNoReconocidos = new ArrayList<>();
         int fila = 1;
         int columnaInicio = 1;
         int longitudTexto = texto.length();
         int indice = 0;
-        
 
         Set<String> OTROS = new LinkedHashSet<>(Arrays.asList("(", ")", "[", "]", "{", "}", ",", ";", ":"));
 
@@ -95,16 +92,13 @@ public class AnalizadorLexico {
                 indice++;
                 columnaInicio++;
             } else {
-                // Carácter no reconocido, considerarlo como un error
-                errores.add("Error en fila " + fila + ", columna " + columnaInicio + ": Carácter no reconocido");
+                caracteresNoReconocidos.add(new Token("No Reconocido", String.valueOf(caracter), "No Reconocido", fila, columnaInicio));
                 indice++;
                 columnaInicio++;
             }
-            //No cambiar eso 
-            AnalizadorLexico ar = new AnalizadorLexico();
-            ar.TablaErrores(errores, (DefaultTableModel) TablaErrores.getModel());
-        }
 
+        }
+        tokens.addAll(caracteresNoReconocidos);
         return tokens;
     }
 
@@ -114,14 +108,8 @@ public class AnalizadorLexico {
     }
 
     // No tocar //
-    public void TablaErrores(List<String> errores, DefaultTableModel model) {
-        for (String error : errores) {
-            model.addRow(new Object[]{error});
-        }
-    }
-
-    // No tocar //
-     private static boolean palabrasReservadas(String lexema) {
+    private static boolean palabrasReservadas(String lexema) {
         return Arrays.asList(PALABRAS_RESERVADAS).contains(lexema);
     }
+
 }

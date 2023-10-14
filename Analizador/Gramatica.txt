@@ -1,0 +1,187 @@
+//Identificador
+I ----> {L}({L}|{D}|_)*
+    | ε
+
+//Otros
+O ----> "("
+   | ")"
+   | "{"
+   | "}"
+   | "["
+   | "]"
+   | ","
+   | ":"
+   | ";"
+   | ε
+
+// Constantes
+C -----> ("-"?{D}+("."{D}+)?)|{D}+
+   | ε
+
+// Comentarios
+Z ----->Z`#
+z`-----> I
+    | ε
+
+
+//Comparacion
+P ------> ==
+    | !=
+    | <=
+    | <
+    | >=
+    | >
+    | ε
+
+// Logicos
+L -----> and
+  | or 
+  | not
+  | ε
+
+//Aritmetico 
+A ----> +
+   | -
+   | /
+   | //
+   | *
+   | %
+   | **
+   | ε
+
+//Asignacion
+B ----> =
+   |  +=
+   | -=
+   | *=
+   | /=
+   | //=
+   | **=
+   | %=
+   | ε
+
+//Booleanos
+V ----> True
+   | False
+   | ε
+
+//PalabrasClaves
+H ------> as  
+   | assert 
+   | break 
+   | class 
+   | continue  
+   | def 
+   | del  
+   | elif  
+   | else  
+   | except  
+   | finally  
+   | for 
+   | from  
+   | global
+   | if 
+   | import
+   | in 
+   | is  
+   | lambda  
+   | None  
+   | nonlocal  
+   | pass 
+   | raise 
+   | return     
+   | try  
+   | while 
+   | with 
+   | yield 
+   | ε
+
+
+//Pertenencia
+M -----> in 
+     | not in
+     | ε
+
+//Bits 
+D ---> &
+   | |
+   | ^
+   | <<
+   | >>
+   | ε
+
+//Identidad
+Y----> is
+   | is not
+   | ε 
+
+//Cadenas
+X ---> \"[^\"]*\"
+   | \'[^\']*\'
+   | ε
+
+
+//Arreglo
+ F ---> F`I 
+ F` ----> F``B	
+ F``--->  O F``
+      | X F``
+      | C F``
+      | ε
+
+//Asignacio o Declaracion
+AD ---> E
+    | F
+    | ε
+
+//Expresiones
+E ---> E`I
+E`---> E``B
+E`` ---> CadenaDoble
+     | CadenaSimple
+     | C
+     | V
+     | ε 
+
+//Ternario
+T ----> T`I
+T` ---> T``B
+T``---> T^4 X
+T^4 ----> S(Sentencia)
+    | ε
+
+//Entrada y Salida
+
+ES ---> ES`I
+ES` --->ES``O
+ES`` ---> ES`X
+       | ES`A
+       | ε
+
+//Condicion Simple y Aninados
+CS -----> H CS  
+     | I CS
+     | P CS
+     | C CS 
+     | x CS 
+     | O CS
+     | A CS
+     | V CS
+     | ε
+
+//Ciclos
+W ---> H W
+   | I W
+   | O W
+   | C W
+   | A W
+   | X W
+   | P W
+   | ε	 
+
+
+
+
+    
+
+	   

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Clases2;
+package BackendAL;
 
 import java.awt.Color;
 
@@ -24,7 +24,7 @@ public class Token {
         this.patron = patron;
         this.fila = fila;
         this.columnaInicio = columnaInicio;
-     
+
     }
 
     //getters y setters 
@@ -67,6 +67,5 @@ public class Token {
     public void setColumnaInicio(int columnaInicio) {
         this.columnaInicio = columnaInicio;
     }
-
 
 }
