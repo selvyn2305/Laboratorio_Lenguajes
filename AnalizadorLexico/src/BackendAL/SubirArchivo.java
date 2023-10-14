@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Clases2;
+package BackendAL;
 
 
-import static GUI.Archivo.txtArchivo;
-import static GUI.GenerarGrafico.Visual;
+import static Frontend.Archivo.txtArchivo;
+import static Frontend.GenerarGrafico.Visual;
 import java.awt.Desktop;
 import java.awt.Image;
 import java.io.BufferedReader;
