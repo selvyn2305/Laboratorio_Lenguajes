@@ -21,8 +21,8 @@ public class Analizador {
         Principal p = new Principal();
         p.setVisible(true);
 
-        AnalizadorLexico an = new AnalizadorLexico();
-        an.Inicio();
+        //AnalizadorLexico an = new AnalizadorLexico();
+        //an.Inicio();
 
         Lineas lin = new Lineas();
         lin.Lineas();
