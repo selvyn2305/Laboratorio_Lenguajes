@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 public class AnalizadorLexico {
 
     public void Inicio() {
-        String ruta = "C:/Users/SELVYN/Desktop/Carpeta IPC 2/Laboratorio/Proyectos/Proyecto 1/Analizador/src/BackEnd/AnalizadorLexico/Lexer.flex";
+        String ruta = "C:/Users/SELVYN/Desktop/Lenguajes/Laboratorio/Tarea de Lab/Laboratorio_Lenguajes/Analizador/src/BackEnd/AnalizadorLexico/Lexer.flex";
         generarLexer(ruta);
     }
 

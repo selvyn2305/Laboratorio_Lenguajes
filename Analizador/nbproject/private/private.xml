@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/SELVYN/Desktop/Carpeta%20IPC%202/Laboratorio/Proyectos/Proyecto%201/Analizador/src/BackEnd/AnalizadorLexico/Lexer.flex</file>
-            <file>file:/C:/Users/SELVYN/Desktop/Carpeta%20IPC%202/Laboratorio/Proyectos/Proyecto%201/Analizador/src/BackEnd/AnalizadorLexico/Tokens.java</file>
-            <file>file:/C:/Users/SELVYN/Desktop/Carpeta%20IPC%202/Laboratorio/Proyectos/Proyecto%201/Analizador/src/BackEnd/AnalizadorLexico/TipoToken.java</file>
-            <file>file:/C:/Users/SELVYN/Desktop/Carpeta%20IPC%202/Laboratorio/Proyectos/Proyecto%201/Analizador/src/BackEnd/AnalizadorLexico/AnalizadorLexico.java</file>
-            <file>file:/C:/Users/SELVYN/Desktop/Carpeta%20IPC%202/Laboratorio/Proyectos/Proyecto%201/Analizador/src/BackEnd/AnalizadorSintactico/AnalizadorSintactico.java</file>
-            <file>file:/C:/Users/SELVYN/Desktop/Carpeta%20IPC%202/Laboratorio/Proyectos/Proyecto%201/Analizador/src/BackEnd/AnalizadorLexico/Lineas.java</file>
-            <file>file:/C:/Users/SELVYN/Desktop/Carpeta%20IPC%202/Laboratorio/Proyectos/Proyecto%201/Analizador/src/FrontEnd/Principal.java</file>
-            <file>file:/C:/Users/SELVYN/Desktop/Carpeta%20IPC%202/Laboratorio/Proyectos/Proyecto%201/Analizador/src/BackEnd/AnalizadorSintactico/Bloques.java</file>
+            <file>file:/C:/Users/SELVYN/Desktop/Lenguajes/Laboratorio/Tarea%20de%20Lab/Laboratorio_Lenguajes/Analizador/src/FrontEnd/Principal.java</file>
+            <file>file:/C:/Users/SELVYN/Desktop/Lenguajes/Laboratorio/Tarea%20de%20Lab/Laboratorio_Lenguajes/Analizador/src/BackEnd/AnalizadorLexico/AnalizadorLexico.java</file>
+            <file>file:/C:/Users/SELVYN/Desktop/Lenguajes/Laboratorio/Tarea%20de%20Lab/Laboratorio_Lenguajes/Analizador/src/BackEnd/AnalizadorSintactico/AnalizadorSintactico.java</file>
+            <file>file:/C:/Users/SELVYN/Desktop/Lenguajes/Laboratorio/Tarea%20de%20Lab/Laboratorio_Lenguajes/Analizador/src/analizador/Analizador.java</file>
+            <file>file:/C:/Users/SELVYN/Desktop/Lenguajes/Laboratorio/Tarea%20de%20Lab/Laboratorio_Lenguajes/Analizador/src/BackEnd/AnalizadorSintactico/Bloques.java</file>
+            <file>file:/C:/Users/SELVYN/Desktop/Lenguajes/Laboratorio/Tarea%20de%20Lab/Laboratorio_Lenguajes/Analizador/src/BackEnd/AnalizadorLexico/Lineas.java</file>
+            <file>file:/C:/Users/SELVYN/Desktop/Lenguajes/Laboratorio/Tarea%20de%20Lab/Laboratorio_Lenguajes/Analizador/src/BackEnd/AnalizadorLexico/TipoToken.java</file>
+            <file>file:/C:/Users/SELVYN/Desktop/Lenguajes/Laboratorio/Tarea%20de%20Lab/Laboratorio_Lenguajes/Analizador/src/BackEnd/AnalizadorLexico/Tokens.java</file>
         </group>
     </open-files>
 </project-private>
